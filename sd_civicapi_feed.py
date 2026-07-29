@@ -71,6 +71,26 @@ def _candidate_key(name):
     return None
 
 
+REPORTING_PCT_KEYS = [
+    "percent_reporting", "pct_reporting", "reporting_pct", "reporting",
+    "pct_in", "percent_in", "percentReporting", "pctReporting",
+]
+
+
+def _extract_reporting_pct(entry):
+    for key in REPORTING_PCT_KEYS:
+        val = entry.get(key)
+        if val is None:
+            continue
+        try:
+            val = float(val)
+        except (TypeError, ValueError):
+            continue
+        # normalize: some APIs give 0-1, others 0-100
+        return val / 100 if val > 1 else val
+    return None
+
+
 def find_county_breakdown(data):
     region_results = data.get("region_results")
     if not isinstance(region_results, dict):
@@ -96,6 +116,7 @@ def find_county_breakdown(data):
             key = _candidate_key(c.get("name", ""))
             if key is not None:
                 totals[key] += c.get("votes", 0) or 0
+        totals["_pct_reporting"] = _extract_reporting_pct(entry)
         county_totals[matched_name] = totals
 
     return county_totals if county_totals else None
@@ -131,7 +152,14 @@ def update_model_from_civicapi(skip_counties=None):
         if county_name not in model.COUNTIES:
             continue
 
-        model.COUNTIES[county_name].report(totals["Rhoden"], totals["Doeden"])
+        county = model.COUNTIES[county_name]
+        county.report(totals["Rhoden"], totals["Doeden"])
+
+        pct_reporting = totals.get("_pct_reporting")
+        if pct_reporting and pct_reporting > 0:
+            reported_total = totals["Rhoden"] + totals["Doeden"]
+            county.total_proj = reported_total / pct_reporting
+
         updated.append(county_name)
 
     return updated
