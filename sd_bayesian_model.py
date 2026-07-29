@@ -201,12 +201,13 @@ class County:
         self.total_proj = total
         self.prior_rhoden_share = prior_rhoden_share
         self.reported_rd = None  # (rhoden, doeden) or None
+        self.total_proj_is_measured = False  # True once set from a direct source (e.g. civicAPI's own percent_reporting)
 
     def report(self, rhoden, doeden):
         self.reported_rd = (rhoden, doeden)
         reported_total = rhoden + doeden
         floor_total = reported_total / (1 - self.MIN_REMAINING_FRACTION)
-        if floor_total > self.total_proj:
+        if floor_total > self.total_proj and not self.total_proj_is_measured:
             self.total_proj = floor_total
 
     def reported_total(self):
@@ -382,14 +383,18 @@ def draw_factor(factor, n_sims):
 def county_point_estimate_remaining(name):
     county = COUNTIES[name]
     rd_factor = get_rd_factor()
-    t_factor = get_turnout_factor()
 
     reported_n = county.reported_total()
 
-    shift_T = t_factor["state_mean"] + t_factor["region_means"][county.region]
-    post_mean_T, _ = county_specific_effect(county, t_factor, "T")
-    shift_T += post_mean_T
-    adjusted_total = county.total_proj * np.exp(shift_T)
+    if county.total_proj_is_measured:
+        adjusted_total = county.total_proj
+    else:
+        t_factor = get_turnout_factor()
+        shift_T = t_factor["state_mean"] + t_factor["region_means"][county.region]
+        post_mean_T, _ = county_specific_effect(county, t_factor, "T")
+        shift_T += post_mean_T
+        adjusted_total = county.total_proj * np.exp(shift_T)
+
     remaining = max(0.0, adjusted_total - reported_n)
     if remaining <= 0:
         return {"Rhoden": 0.0, "Doeden": 0.0}
