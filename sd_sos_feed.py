@@ -143,10 +143,21 @@ def update_model_from_county(county_name, html_text=None):
             f"found {list(candidates.keys())}"
         )
 
-    model.COUNTIES[county_name].report(rhoden, doeden)
+    county = model.COUNTIES[county_name]
+    county.report(rhoden, doeden)
+
+    precincts_fully = parsed["precincts_fully"]
+    precincts_total = parsed["precincts_total"]
+    if precincts_fully and precincts_total:
+        pct_in = precincts_fully / precincts_total
+        reported_total = rhoden + doeden
+        if pct_in > 0:
+            live_estimate = reported_total / pct_in
+            county.total_proj = live_estimate
+
     return {"Rhoden": rhoden, "Doeden": doeden,
-            "precincts_fully": parsed["precincts_fully"],
-            "precincts_total": parsed["precincts_total"]}
+            "precincts_fully": precincts_fully,
+            "precincts_total": precincts_total}
 
 
 def update_all_counties():
