@@ -288,11 +288,14 @@ def hierarchical_pool(obs_dict, floor_state, floor_region, floor_county):
 
 
 def coverage():
-    total_reported = sum(c.reported_total() for c in COUNTIES.values())
-    total_proj = sum(c.total_proj for c in COUNTIES.values())
-    vote_pct = total_reported / total_proj if total_proj else 0.0
-    county_pct = sum(1 for c in COUNTIES.values() if c.reported_rd is not None) / len(COUNTIES)
-    return min(vote_pct, county_pct) ** CREDIBILITY_EXPONENT
+    reporting = [c for c in COUNTIES.values() if c.reported_rd is not None and c.total_proj > 0]
+    if not reporting:
+        return 0.0
+
+    breadth_pct = len(reporting) / len(COUNTIES)
+    avg_completeness = sum(min(c.reported_total() / c.total_proj, 1.0) for c in reporting) / len(reporting)
+
+    return (breadth_pct * avg_completeness) ** CREDIBILITY_EXPONENT
 
 
 def empty_factor(floor_state, floor_region, floor_county):
