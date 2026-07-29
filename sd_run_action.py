@@ -15,17 +15,21 @@ def main():
         print("Missing GIST_ID or GIST_TOKEN environment variables.")
         sys.exit(1)
 
-    updated, failed = feed.update_all_counties()
-    print(f"[SD SOS] updated OK ({len(updated)}/66 counties)")
-    if failed:
-        print(f"[SD SOS] {len(failed)} counties failed this cycle "
-              f"(may just mean not posted yet): {list(failed.keys())}")
+    updated = []
+    try:
+        updated = civicapi.update_model_from_civicapi()
+        print(f"[civicAPI] updated OK ({len(updated)}/66 counties)")
+    except Exception as e:
+        print("[civicAPI] FAILED:", e)
 
+    remaining_counties = set(model.COUNTIES.keys()) - set(updated)
+    if remaining_counties:
         try:
-            civic_updated = civicapi.update_model_from_civicapi(skip_counties=set(updated))
-            print(f"[civicAPI] covered {len(civic_updated)} counties that SD SOS missed: {civic_updated}")
+            sos_updated, failed = feed.update_all_counties()
+            covered = set(sos_updated) & remaining_counties
+            print(f"[SD SOS] covered {len(covered)} counties civicAPI missed: {sorted(covered)}")
         except Exception as e:
-            print("[civicAPI] fallback FAILED:", e)
+            print("[SD SOS] fallback FAILED:", e)
 
     try:
         snap = publish.publish_snapshot(GIST_ID, GIST_TOKEN)
