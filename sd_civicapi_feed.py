@@ -159,6 +159,7 @@ def update_model_from_civicapi(skip_counties=None):
         if pct_reporting and pct_reporting > 0:
             reported_total = totals["Rhoden"] + totals["Doeden"]
             county.total_proj = reported_total / pct_reporting
+            county.total_proj_is_measured = True
 
         updated.append(county_name)
 
