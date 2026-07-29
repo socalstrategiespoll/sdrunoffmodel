@@ -119,71 +119,71 @@ COUNTY_REGION = {
 }
 
 _CONFIG = {
-    "Aurora": dict(total=446, prior_rhoden_share=0.575256),
-    "Beadle": dict(total=1898, prior_rhoden_share=0.636895),
+    "Aurora": dict(total=426, prior_rhoden_share=0.575256),
+    "Beadle": dict(total=1865, prior_rhoden_share=0.636895),
     "Bennett": dict(total=321, prior_rhoden_share=0.582872),
-    "Bon Homme": dict(total=1036, prior_rhoden_share=0.545231),
+    "Bon Homme": dict(total=942, prior_rhoden_share=0.545231),
     "Brookings": dict(total=3566, prior_rhoden_share=0.6554),
-    "Brown": dict(total=5871, prior_rhoden_share=0.605402),
+    "Brown": dict(total=8191, prior_rhoden_share=0.605402),
     "Brule": dict(total=698, prior_rhoden_share=0.624657),
     "Buffalo": dict(total=62, prior_rhoden_share=0.6712),
     "Butte": dict(total=2104, prior_rhoden_share=0.624085),
     "Campbell": dict(total=375, prior_rhoden_share=0.571894),
-    "Charles Mix": dict(total=1246, prior_rhoden_share=0.64823),
-    "Clark": dict(total=905, prior_rhoden_share=0.586493),
+    "Charles Mix": dict(total=1095, prior_rhoden_share=0.64823),
+    "Clark": dict(total=893, prior_rhoden_share=0.586493),
     "Clay": dict(total=988, prior_rhoden_share=0.654384),
-    "Codington": dict(total=3623, prior_rhoden_share=0.586539),
+    "Codington": dict(total=3581, prior_rhoden_share=0.586539),
     "Corson": dict(total=251, prior_rhoden_share=0.622803),
     "Custer": dict(total=2545, prior_rhoden_share=0.493912),
     "Davison": dict(total=2668, prior_rhoden_share=0.676208),
-    "Day": dict(total=891, prior_rhoden_share=0.639406),
-    "Deuel": dict(total=949, prior_rhoden_share=0.54622),
+    "Day": dict(total=872, prior_rhoden_share=0.639406),
+    "Deuel": dict(total=740, prior_rhoden_share=0.54622),
     "Dewey": dict(total=301, prior_rhoden_share=0.661557),
-    "Douglas": dict(total=1005, prior_rhoden_share=0.661452),
+    "Douglas": dict(total=1004, prior_rhoden_share=0.661452),
     "Edmunds": dict(total=889, prior_rhoden_share=0.561976),
     "Fall River": dict(total=1730, prior_rhoden_share=0.473357),
-    "Faulk": dict(total=758, prior_rhoden_share=0.667403),
-    "Grant": dict(total=1242, prior_rhoden_share=0.55588),
-    "Gregory": dict(total=1112, prior_rhoden_share=0.636644),
-    "Haakon": dict(total=595, prior_rhoden_share=0.659837),
-    "Hamlin": dict(total=1566, prior_rhoden_share=0.609528),
-    "Hand": dict(total=761, prior_rhoden_share=0.702093),
+    "Faulk": dict(total=618, prior_rhoden_share=0.667403),
+    "Grant": dict(total=1192, prior_rhoden_share=0.55588),
+    "Gregory": dict(total=781, prior_rhoden_share=0.636644),
+    "Haakon": dict(total=578, prior_rhoden_share=0.659837),
+    "Hamlin": dict(total=1173, prior_rhoden_share=0.609528),
+    "Hand": dict(total=772, prior_rhoden_share=0.702093),
     "Hanson": dict(total=539, prior_rhoden_share=0.563476),
-    "Harding": dict(total=433, prior_rhoden_share=0.658321),
+    "Harding": dict(total=431, prior_rhoden_share=0.658321),
     "Hughes": dict(total=3942, prior_rhoden_share=0.782166),
     "Hutchinson": dict(total=1408, prior_rhoden_share=0.616392),
     "Hyde": dict(total=308, prior_rhoden_share=0.673117),
-    "Jackson": dict(total=424, prior_rhoden_share=0.648261),
+    "Jackson": dict(total=419, prior_rhoden_share=0.648261),
     "Jerauld": dict(total=336, prior_rhoden_share=0.654354),
-    "Jones": dict(total=320, prior_rhoden_share=0.682988),
-    "Kingsbury": dict(total=1140, prior_rhoden_share=0.616205),
-    "Lake": dict(total=1817, prior_rhoden_share=0.644027),
-    "Lawrence": dict(total=4893, prior_rhoden_share=0.633875),
-    "Lincoln": dict(total=9681, prior_rhoden_share=0.65085),
-    "Lyman": dict(total=568, prior_rhoden_share=0.627008),
-    "Marshall": dict(total=685, prior_rhoden_share=0.664552),
-    "McCook": dict(total=1226, prior_rhoden_share=0.581486),
+    "Jones": dict(total=270, prior_rhoden_share=0.682988),
+    "Kingsbury": dict(total=1155, prior_rhoden_share=0.616205),
+    "Lake": dict(total=1832, prior_rhoden_share=0.644027),
+    "Lawrence": dict(total=4900, prior_rhoden_share=0.633875),
+    "Lincoln": dict(total=9712, prior_rhoden_share=0.65085),
+    "Lyman": dict(total=521, prior_rhoden_share=0.627008),
+    "Marshall": dict(total=602, prior_rhoden_share=0.664552),
+    "McCook": dict(total=1013, prior_rhoden_share=0.581486),
     "McPherson": dict(total=743, prior_rhoden_share=0.696711),
-    "Meade": dict(total=5443, prior_rhoden_share=0.626527),
+    "Meade": dict(total=5260, prior_rhoden_share=0.626527),
     "Mellette": dict(total=191, prior_rhoden_share=0.649617),
     "Miner": dict(total=354, prior_rhoden_share=0.637836),
-    "Minnehaha": dict(total=21524, prior_rhoden_share=0.627603),
-    "Moody": dict(total=913, prior_rhoden_share=0.587962),
+    "Minnehaha": dict(total=21473, prior_rhoden_share=0.627603),
+    "Moody": dict(total=832, prior_rhoden_share=0.587962),
     "Oglala Lakota": dict(total=327, prior_rhoden_share=0.627079),
-    "Pennington": dict(total=15447, prior_rhoden_share=0.598787),
+    "Pennington": dict(total=15567, prior_rhoden_share=0.598787),
     "Perkins": dict(total=792, prior_rhoden_share=0.672649),
-    "Potter": dict(total=784, prior_rhoden_share=0.677011),
-    "Roberts": dict(total=943, prior_rhoden_share=0.510792),
-    "Sanborn": dict(total=310, prior_rhoden_share=0.650622),
-    "Spink": dict(total=1057, prior_rhoden_share=0.617905),
+    "Potter": dict(total=773, prior_rhoden_share=0.677011),
+    "Roberts": dict(total=766, prior_rhoden_share=0.510792),
+    "Sanborn": dict(total=337, prior_rhoden_share=0.650622),
+    "Spink": dict(total=1114, prior_rhoden_share=0.617905),
     "Stanley": dict(total=1023, prior_rhoden_share=0.724547),
     "Sully": dict(total=486, prior_rhoden_share=0.64824),
-    "Todd": dict(total=202, prior_rhoden_share=0.484509),
-    "Tripp": dict(total=1518, prior_rhoden_share=0.636861),
-    "Turner": dict(total=1673, prior_rhoden_share=0.585254),
-    "Union": dict(total=2163, prior_rhoden_share=0.60139),
-    "Walworth": dict(total=1033, prior_rhoden_share=0.647687),
-    "Yankton": dict(total=3281, prior_rhoden_share=0.647334),
+    "Todd": dict(total=69, prior_rhoden_share=0.484509),
+    "Tripp": dict(total=1156, prior_rhoden_share=0.636861),
+    "Turner": dict(total=1691, prior_rhoden_share=0.585254),
+    "Union": dict(total=1472, prior_rhoden_share=0.60139),
+    "Walworth": dict(total=1024, prior_rhoden_share=0.647687),
+    "Yankton": dict(total=2853, prior_rhoden_share=0.647334),
     "Ziebach": dict(total=161, prior_rhoden_share=0.712355),
 }
 
@@ -193,6 +193,8 @@ def contrast_logodds(p):
 
 
 class County:
+    MIN_REMAINING_FRACTION = 0.15  # total_proj auto-raises so reported never exceeds ~85% of it
+
     def __init__(self, name, total, prior_rhoden_share):
         self.name = name
         self.region = COUNTY_REGION[name]
@@ -202,6 +204,10 @@ class County:
 
     def report(self, rhoden, doeden):
         self.reported_rd = (rhoden, doeden)
+        reported_total = rhoden + doeden
+        floor_total = reported_total / (1 - self.MIN_REMAINING_FRACTION)
+        if floor_total > self.total_proj:
+            self.total_proj = floor_total
 
     def reported_total(self):
         if self.reported_rd is None:
