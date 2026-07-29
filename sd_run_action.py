@@ -3,6 +3,7 @@ import sys
 
 import sd_bayesian_model as model
 import sd_sos_feed as feed
+import sd_civicapi_feed as civicapi
 import sd_publish as publish
 
 GIST_ID = os.environ.get("GIST_ID")
@@ -19,6 +20,12 @@ def main():
     if failed:
         print(f"[SD SOS] {len(failed)} counties failed this cycle "
               f"(may just mean not posted yet): {list(failed.keys())}")
+
+        try:
+            civic_updated = civicapi.update_model_from_civicapi(skip_counties=set(updated))
+            print(f"[civicAPI] covered {len(civic_updated)} counties that SD SOS missed: {civic_updated}")
+        except Exception as e:
+            print("[civicAPI] fallback FAILED:", e)
 
     try:
         snap = publish.publish_snapshot(GIST_ID, GIST_TOKEN)
